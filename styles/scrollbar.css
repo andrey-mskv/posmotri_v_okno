@@ -1,0 +1,12 @@
+/* Скрыть scrollbar для Chrome, Safari и Opera */
+
+.content__list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Скрыть scrollbar для IE, Edge и Firefox */
+
+.content__list {
+  -ms-overflow-style: none; /* IE */
+  scrollbar-width: none; /* Firefox */
+}
