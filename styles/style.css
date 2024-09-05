@@ -125,6 +125,9 @@ ol {
 /* активирует чекбоксы */
 
 .search-form__checkbox[type='checkbox']:checked
+  + .search-form__pseudo-checkbox::before,
+.search-form__label:active
+  .search-form__checkbox[type='checkbox']
   + .search-form__pseudo-checkbox::before {
   content: '';
   display: block;
@@ -140,13 +143,19 @@ ol {
   color: #fff;
   font-size: inherit;
   font-weight: 700;
+  font-family: inherit;
   cursor: pointer;
 }
 
 .button:hover,
-.content__list-item:hover,
+.content__card-link:hover,
 .search-form__label:hover {
   text-decoration: underline;
+  color: inherit;
+}
+
+.search-form__label:active {
+  text-decoration: none;
 }
 
 .button:focus,
@@ -203,6 +212,10 @@ ol {
   background-color: #545050;
 }
 
+.content__card-link_current:hover {
+  text-decoration: none;
+}
+
 .content__list-item:not(:last-child) {
   margin-bottom: 30px;
 }
@@ -222,6 +235,8 @@ ol {
   font-size: 30px;
   font-family: Oswald, sans-serif;
   text-transform: uppercase;
+  line-height: 115%;
+  margin-bottom: 2px;
 }
 
 .content__video-card-description {
@@ -304,7 +319,8 @@ ol {
   border: 1px solid transparent;
 }
 
-.content__list-item:active,
+.content__card-link:active,
 .button:active {
   background-color: #545050;
+  text-decoration: none;
 }
