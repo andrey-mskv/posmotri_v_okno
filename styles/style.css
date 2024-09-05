@@ -48,7 +48,7 @@ ol {
   justify-content: space-between;
   gap: 30px;
   align-items: end;
-  block-size: 534px;
+  /* block-size: 534px; fix-01 убрал фиксированную высоту, добавил margin-botton для .title (182) */
   inline-size: 1140px;
 }
 
@@ -137,7 +137,7 @@ ol {
 }
 
 .button {
-  height: 34px;
+  min-height: 34px;  /* fix-02 изменено на min-height */
   background: transparent;
   border: 1px solid #fff;
   color: #fff;
@@ -148,7 +148,7 @@ ol {
 }
 
 .button:hover,
-.content__card-link:hover,
+.content__card-link:hover,  /* fix-03 теперь в интерактиве учавствует ссылка на карточку */
 .search-form__label:hover {
   text-decoration: underline;
   color: inherit;
@@ -171,7 +171,7 @@ ol {
 }
 
 .search-form__submit-button {
-  width: 194px;
+  min-width: 194px;  /* fix-04 изменено на min-height */
 }
 
 .more-button {
@@ -184,11 +184,12 @@ ol {
   line-height: 94%;
   font-family: Oswald, sans-serif;
   text-transform: uppercase;
+  margin-bottom: 23px;
 }
 
 .content__list {
   position: relative;
-  overflow: hidden auto;
+  overflow-y: auto;  /* fix-05 убрал запрет отображения горизонтального скролла */
   height: 298px;
   min-width: 399px;
   color: inherit;
@@ -231,14 +232,6 @@ ol {
   padding: 2px;
 }
 
-.content__video-card-title {
-  font-size: 30px;
-  font-family: Oswald, sans-serif;
-  text-transform: uppercase;
-  line-height: 115%;
-  margin-bottom: 2px;
-}
-
 .content__video-card-description {
   line-height: 16px;
 }
@@ -256,13 +249,24 @@ ol {
   overflow: hidden;
 }
 
-.content__video-card-description-container .content__video-card-title {
+.content__video-card-title { /* fix-06 разрозненные селекторы объеденены */
+  font-size: 30px;
+  font-family: Oswald, sans-serif;
+  text-transform: uppercase;
+  line-height: 115%;
+  margin-bottom: 2px;
   /* обрезка заголовка */
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
   /* для родителя добавить overflow: hidden */
 }
+
+/* .content__video-card-description-container .content__video-card-title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+} */
 
 .visually-hidden {
   position: absolute; /* элемент вырывают из потока */
@@ -286,11 +290,9 @@ ol {
   font-size: inherit;
   color: #fff;
   border: transparent;
-  height: 27px;
   background-color: transparent;
-  /* width: 100%; */
-  /* По макету подходит жесткая ширина */
-  width: 225px;
+  min-width: 225px; /* fix-07 фиксация минимальной ширины */
+  min-height: 27px; /* fix-08 фиксация минимальной высоты */
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
   border-left: 1px solid transparent;
